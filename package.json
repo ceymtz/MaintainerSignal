@@ -1,0 +1,19 @@
+{
+  "name": "maintainer-signal",
+  "version": "0.1.0",
+  "description": "A zero-dependency GitHub Action and CLI that turns pull requests into structured maintainer briefs.",
+  "type": "module",
+  "bin": { "maintainer-signal": "./src/cli.js" },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/*.js",
+    "demo": "node src/cli.js --fixture examples/sample-pr.json"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["github-action", "pull-request", "code-review", "open-source", "maintainer", "openai", "release-notes"],
+  "license": "MIT",
+  "author": "Jesús Martínez Castillo",
+  "repository": { "type": "git", "url": "https://github.com/ceymtz/j.git" },
+  "bugs": { "url": "https://github.com/ceymtz/j/issues" },
+  "homepage": "https://github.com/ceymtz/j#readme"
+}

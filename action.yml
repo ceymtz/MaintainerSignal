@@ -1,0 +1,48 @@
+name: MaintainerSignal
+description: Generate an evidence-based maintainer brief for every pull request.
+author: Jesús Martínez Castillo
+
+branding:
+  icon: activity
+  color: purple
+
+inputs:
+  github-token:
+    description: GitHub token used to read the pull request and publish the report.
+    required: true
+    default: ${{ github.token }}
+  openai-api-key:
+    description: Optional OpenAI API key for semantic review.
+    required: false
+  model:
+    description: OpenAI model used when AI review is enabled.
+    required: false
+    default: gpt-5.4-mini
+  ai-review:
+    description: "AI mode: auto, always, or never."
+    required: false
+    default: auto
+  max-diff-chars:
+    description: Maximum number of redacted diff characters sent to the model.
+    required: false
+    default: "40000"
+  comment:
+    description: Publish or update a pull request comment.
+    required: false
+    default: "true"
+  fail-on-risk:
+    description: "Fail at this risk level: none, moderate, high, or critical."
+    required: false
+    default: none
+
+outputs:
+  risk-level:
+    description: Computed deterministic risk level.
+  risk-score:
+    description: Computed deterministic risk score.
+  report:
+    description: Markdown maintainer brief.
+
+runs:
+  using: node20
+  main: src/action.js

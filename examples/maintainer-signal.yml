@@ -1,0 +1,16 @@
+name: MaintainerSignal
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+jobs:
+  maintainer-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ceymtz/j@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          ai-review: never

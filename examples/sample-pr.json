@@ -1,0 +1,13 @@
+{
+  "pullRequest": {
+    "number": 42,
+    "title": "Add token rotation and update the deployment workflow",
+    "user": { "login": "contributor" },
+    "base": { "ref": "main" },
+    "head": { "ref": "token-rotation" }
+  },
+  "files": [
+    { "filename": "src/auth/token.js", "status": "modified", "additions": 140, "deletions": 35, "patch": "+export function rotateToken() {}" },
+    { "filename": ".github/workflows/deploy.yml", "status": "modified", "additions": 60, "deletions": 13, "patch": "+permissions:\n+  contents: read" }
+  ]
+}
